@@ -12,7 +12,7 @@ import java.util.Map;
 public class ApiExceptionControllerAdvice {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<?> exceptionHandlerApi(MethodArgumentNotValidException exception) {
+    public ResponseEntity<Object> exceptionHandlerApi(MethodArgumentNotValidException exception) {
             Map<String, String> errors = new HashMap<>();
             exception.getBindingResult().getFieldErrors().forEach(error -> {
                 errors.put(error.getField(), error.getDefaultMessage());
